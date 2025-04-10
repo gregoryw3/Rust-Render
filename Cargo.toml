@@ -1,8 +1,8 @@
 [package]
-name = "rust-template"
+name = "Rust-Renderer"
 version = "0.1.0"
-authors = ["zaszi <admin@zaszi.net>"]
-edition = "2021"
+authors = ["gregoryw3 <?>"]
+edition = "2024"
 description = "A project template for Rust, helping to structure your projects according to best practices."
 documentation = "https://github.com/zaszi/rust-template"
 readme = "README.md"
@@ -13,17 +13,25 @@ keywords = ["template", "wasm"]
 categories = ["rust-patterns", "wasm"]
 publish = false
 
-[lib]
-crate-type = ["cdylib", "rlib"]
-
 [features]
 default = []
 
 [dependencies]
 wasm-bindgen = "0.2"
+winit = { version = "0.30" }
+image = { version = "0.25" }
+nalgebra = { version = "0.33" }
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"]}
+softbuffer = "0.4"
+tokio = { version = "1", features = ["full"] }
+glam = "0.30.1"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
+
+[build-dependencies]
+cfg_aliases = "0.2.1"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 console_error_panic_hook = "0.1"
